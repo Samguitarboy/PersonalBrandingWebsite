@@ -1,4 +1,116 @@
+/* 全域樣式 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 額外對標籤做基本樣式設定 */
+body {
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+    background-color: #fbfbfb;
+  }
+  
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+  /* 共用Class */
+.container {
+    width: 1320px; /* 12px+1296px+12px */
+    margin: 0 auto;
+    padding: 0 12px;
+  }
+
 /* 部落格文章頁 */
+.article {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #6c757d;
+  border-bottom: 1px solid #6c757d;
+}
+.article-pic {
+  width: 50%;
+  height: auto;
+}
+.article-box {
+  margin-left: 24px;
+  padding-top: 80px;
+  padding-right: 120px;
+  padding-bottom: 80px;
+  gap: 24px;
+  .article-tag {
+    color: #0027d5;
+    font-size: 24px;
+  }
+  .article-new {
+    padding: 6px 12px;
+    color: #fff;
+    background-color: #0027d5;
+    border-radius: 40px;
+  }
+  .aritcle-title {
+    font-size: 28px;
+    font-weight: 700;
+  }
+}
+
+.article-content {
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-right: 642px;
+  margin-left: 642px;
+}
+.section {
+  padding-bottom: 48px;
+  .section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0027d5;
+    padding-bottom: 24px;
+  }
+}
+.subsection {
+  padding-bottom: 24px;
+  .subsection-title {
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 12px;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  li {
+    margin-left: 1.5em;
+  }
+}
+.note {
+  background-color: #ededed;
+  border-radius: 24px;
+  padding: 24px;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.article-nav-list {
+  display: flex;
+  justify-content: space-between;
+}
+.btn {
+  border: 1px solid #000;
+  border-radius: 40px;
+  padding: 8px 16px;
+}
+
 /* 桌機、平板：768px~1920px */
 
 
