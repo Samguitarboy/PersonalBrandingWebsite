@@ -127,20 +127,6 @@ img {
   object-fit: cover;
 }
 
-/* 導航列navbar */
-.navbar {
-  display: flex; /*  選單並排  */
-  justify-content: center;
-  max-width: 100%;
-}
-.navbar:hover {
-  color: #0027d5;
-}
-.navbar ul {
-  display: flex;
-  list-style: none;
-}
-
 /* Banner區塊:左邊人物圖＋右邊背景內容 */
 .banner-box {
   display: flex;
