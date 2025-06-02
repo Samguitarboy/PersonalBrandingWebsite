@@ -90,7 +90,7 @@ h3 {
 
 /* 共用Class */
 .container {
-  width: 1320px; /* 12px+1296px+12px */
+  max-width: 1320px; /* 12px+1296px+12px */
   margin: 0 auto;
   padding: 0 12px;
 }
@@ -174,6 +174,10 @@ h3 {
   margin-top: 16px;
   gap: 4px;
 }
+.banner-desc ul a:hover {
+  background: #f8f4f4;
+  border-radius: 8px;
+}
 
 /* Banner區塊 - 響應式：為了讓banner-title不會斷行 */
 @media (max-width: 1710px) {
@@ -185,6 +189,9 @@ h3 {
 @media (max-width: 992px) {
   .banner-profile {
     flex-direction: column;
+    /* 手機版樣式兩側空12px，內容置中 */
+    margin: 0 auto;
+    padding: 0 12px;
   }
   .banner-intro {
     width: 100%;
@@ -207,6 +214,7 @@ h3 {
 /* 專業服務與方案區塊 */
 .service {
   padding: 80px 0;
+  border-bottom: 1px solid #6c757d;
 }
 .service .service-title {
   margin-bottom: 32px;
@@ -250,26 +258,200 @@ h3 {
 .service .list-item-reverse .list-img {
   margin-left: -40px;
 }
+.service .service-contact {
+  margin-top: 32px;
+  gap: 8px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.service .service-contact h3 {
+  padding: 1px 0;
+}
+.service .service-contact .arrow i {
+  display: inline-flex;
+  vertical-align: middle;
+  font-size: 40px;
+  color: #000;
+  border-radius: 50%;
+}
+.service .service-contact .arrow i:hover {
+  color: #fff;
+  background: #000;
+}
 
+/* 專業服務與方案區塊 - 響應式：為了讓標題文字和聯繫我的箭頭不會跑版 */
+@media (max-width: 1355px) {
+  .service-title {
+    text-align: center;
+  }
+  .service-contact {
+    padding-right: 12px;
+  }
+}
 /* 專業服務與方案區塊 - 響應式：平板尺寸時就顯示手機版樣式 */
 @media (max-width: 992px) {
+  .service {
+    /* 手機版樣式兩側空12px，內容置中 */
+    margin: 0 auto;
+    padding: 0 12px;
+  }
   .service .list {
     padding: 0;
   }
-  .service .list .list-img, .service .list .list-text {
+  .service .list .list-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .service .list .list-item .list-img {
     width: 100%;
   }
-  .service .list-item-row {
-    flex-direction: column;
+  .service .list .list-item .list-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .service .list .list-item .list-text {
+    position: static;
+    width: 100%;
   }
   .service .list-item-row .list-img {
     margin-right: 0;
   }
-  .service .list-item-reverse {
-    flex-direction: column;
-  }
   .service .list-item-reverse .list-img {
     margin-left: 0;
+  }
+  .service .service-contact {
+    flex-direction: column;
+    align-items: end;
+  }
+}
+/* 專業服務與方案區塊 - 響應式：375px~992px間標題因文字太大會跑版的樣式調整 */
+@media (max-width: 480px) {
+  .service-title {
+    font-size: 48px;
+  }
+}
+/* 部落格精選區塊 */
+.feature {
+  padding: 80px 0;
+  border-bottom: 1px solid #6c757d;
+}
+.feature h2 {
+  margin-bottom: 24px;
+}
+.feature .feature-wrapper {
+  position: relative;
+}
+.feature .feature-wrapper .slider-btn-wrapper .slider-btn {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0027d5;
+}
+.feature .feature-wrapper .slider-btn-wrapper .slider-btn-prev {
+  left: -64px;
+}
+.feature .feature-wrapper .slider-btn-wrapper .slider-btn-next {
+  right: -64px;
+}
+.feature .feature-wrapper .slider-btn-wrapper .swiper-button-disabled {
+  color: #b2bef2;
+}
+.feature .feature-wrapper .slider-btn-wrapper i {
+  font-size: 44px;
+}
+.feature .swiper {
+  overflow: hidden;
+}
+.feature .swiper .swiper-wrapper {
+  overflow: visible;
+}
+.feature .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.feature .card .card-head {
+  margin-bottom: 16px;
+}
+.feature .card .card-head img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.feature .card .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.feature .card .card-body time {
+  margin-bottom: 4px;
+}
+.feature .card .card-body .card-subtitle {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.feature .card .card-body .card-subtitle .hashtag a {
+  font-size: 24px;
+  color: #0027d5;
+  margin-right: 8px;
+  text-decoration: none;
+}
+.feature .card .card-body .card-subtitle .hashtag a:hover {
+  color: #b2bef2;
+}
+.feature .card .card-body .card-subtitle .badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 80px;
+  font-weight: 700;
+  background: #0027d5;
+  color: #fff;
+}
+.feature .card .card-body .card-title {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+.feature .card .card-body .card-desc {
+  flex-grow: 1;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.feature .card .card-body .btn {
+  padding: 8px 16px;
+  border: 1px solid #000;
+  border-radius: 80px;
+  color: #4b4b4b;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+}
+.feature .card .card-body .btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* 部落格精選區塊 - 響應式：  */
+@media (max-width: 1500px) {
+  .feature .slider-btn {
+    position: static;
+    transform: translateY(0);
+  }
+  .feature .slider-btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+  }
+  .feature .swiper {
+    margin-bottom: 32px;
   }
 }
 /* 部落格列表頁 */

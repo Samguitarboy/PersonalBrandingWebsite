@@ -47,6 +47,11 @@
     display: flex;
     margin-top: 16px;
     gap: 4px;
+    a:hover {
+      background: #f8f4f4;
+      border-radius: 8px;
+    }
+
   }
 }
 
@@ -62,6 +67,9 @@
 @media (max-width: 992px) {
   .banner-profile {
     flex-direction: column;
+    /* 手機版樣式兩側空12px，內容置中 */
+    margin: 0 auto;
+    padding: 0 12px;
   }
   .banner-intro {
     width: 100%;
@@ -86,6 +94,7 @@
 
 .service {
   padding: 80px 0;
+  border-bottom: 1px solid #6c757d;
   .service-title {
     margin-bottom: 32px;
   }
@@ -131,34 +140,231 @@
       margin-left: -40px;
     }
   }
-}
-
-/* 專業服務與方案區塊 - 響應式：平板尺寸時就顯示手機版樣式 */
-@media (max-width: 992px) {
-  .service {
-    .list {
-      padding: 0;
-      .list-img, .list-text {
-        width: 100%;
-      }
+  .service-contact {
+    margin-top: 32px;
+    gap: 8px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    h3 {
+      padding: 1px 0;
     }
-
-    .list-item-row {
-      flex-direction: column;
-      .list-img {
-        margin-right: 0;
-      }
-    }
-    .list-item-reverse {
-      flex-direction: column;
-      .list-img {
-        margin-left: 0;
+    .arrow i{
+      display: inline-flex;
+      vertical-align: middle;
+      font-size: 40px;
+      color: #000;
+      border-radius: 50%;
+      &:hover {
+        color: #fff;
+        background: #000;
       }
     }
   }
 }
 
+/* 專業服務與方案區塊 - 響應式：為了讓標題文字和聯繫我的箭頭不會跑版 */
+@media (max-width: 1355px) {
+  .service-title {
+    text-align: center;
+  }
+  .service-contact {
+    padding-right: 12px;
+  }
+}
+
+/* 專業服務與方案區塊 - 響應式：平板尺寸時就顯示手機版樣式 */
+@media (max-width: 992px) {
+  .service {
+    /* 手機版樣式兩側空12px，內容置中 */
+    margin: 0 auto;
+    padding: 0 12px;
+
+    .list {
+      padding: 0;
+      .list-item {
+        flex-direction: column;
+        align-items: stretch;
+        .list-img{
+          width: 100%;
+          img {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+        }
+        .list-text {
+          position: static;
+          width: 100%;
+        }
+      } 
+    }
   
+    .list-item-row {
+      .list-img {
+        margin-right: 0;
+      }
+    } 
+    .list-item-reverse {
+      .list-img {
+        margin-left: 0;
+      }
+    }
+    .service-contact {
+      flex-direction: column;
+      align-items: end;
+    }
+  }
+}
+
+/* 專業服務與方案區塊 - 響應式：375px~992px間標題因文字太大會跑版的樣式調整 */
+@media (max-width: 480px) {
+  .service-title {
+    font-size: 48px;
+  }
+}
+
+/* 部落格精選區塊 */
+
+.feature {
+  padding: 80px 0;
+  border-bottom: 1px solid #6c757d;
+  h2 {
+    margin-bottom: 24px;
+  }
+  .feature-wrapper {
+    position: relative;
+    .slider-btn-wrapper {
+      .slider-btn {
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #0027d5;
+      }
+      .slider-btn-prev {
+        left: -64px;
+      }
+      .slider-btn-next {
+        right: -64px;
+      }
+      .swiper-button-disabled {
+        color: #b2bef2;
+      }
+      i {
+        font-size: 44px;
+      }
+    }
+  }
+  .swiper {
+    overflow: hidden;
+    .swiper-wrapper {
+      overflow: visible;
+    }
+  }
+  .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .card-head {
+      margin-bottom: 16px;
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
+
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      time {
+        margin-bottom: 4px;
+      }
+
+      .card-subtitle {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+
+        .hashtag {
+          a {
+            font-size: 24px;
+            color: #0027d5;
+            margin-right: 8px;
+            text-decoration: none;
+
+            &:hover {
+              color: #b2bef2;
+            }
+          }
+        }
+        .badge {
+          display: inline-block;
+          padding: 6px 12px;
+          border-radius: 80px;
+          font-weight: 700;
+          background: #0027d5;
+          color: #fff;
+        }
+      }
+
+      .card-title {
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      .card-desc {
+        flex-grow: 1; // 撐開剩餘空間
+        margin-bottom: 16px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        border: 1px solid #000;
+        border-radius: 80px;
+        color: #4b4b4b;
+        text-decoration: none;
+        align-self: flex-start;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #000;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+}
+
+/* 部落格精選區塊 - 響應式：  */
+@media (max-width: 1500px) {
+  .feature {
+    .slider-btn {
+      position: static;
+      transform: translateY(0);
+    }
+    .slider-btn-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      gap: 24px;
+    }
+    .swiper {
+      margin-bottom: 32px;
+    }
+
+  }  
+}
 
 
 
