@@ -1,11 +1,11 @@
 const swiper = new Swiper(".swiper", {
   // 設定輪播數量
-  slidesPerView: 3,
+  slidesPerView: 1,
   // 每張 slide 的間距
   spaceBetween: 24,
   // 斷點，注意是 mobile first 寫法
   breakpoints: {
-    320: {
+    576: {
       slidesPerView: 1
     },
     992: {

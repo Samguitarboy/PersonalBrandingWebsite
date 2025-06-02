@@ -176,9 +176,9 @@
 /* 專業服務與方案區塊 - 響應式：平板尺寸時就顯示手機版樣式 */
 @media (max-width: 992px) {
   .service {
-    /* 手機版樣式兩側空12px，內容置中 */
+    /* 手機版樣式兩側空12px，上下空64px，內容置中 */
     margin: 0 auto;
-    padding: 0 12px;
+    padding: 64px 12px;
 
     .list {
       padding: 0;
@@ -234,34 +234,20 @@
   }
   .feature-wrapper {
     position: relative;
-    .slider-btn-wrapper {
-      .slider-btn {
-        position: absolute;
-        z-index: 10;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #0027d5;
-      }
-      .slider-btn-prev {
-        left: -64px;
-      }
-      .slider-btn-next {
-        right: -64px;
-      }
-      .swiper-button-disabled {
-        color: #b2bef2;
-      }
-      i {
-        font-size: 44px;
-      }
-    }
   }
+  /*
+    1. .swiper 是 Swiper 的主要容器，必須存在。
+    2. .swiper-wrapper 是所有 slide 的包裹區塊，是 Swiper 的固定結構。
+    3. .swiper-slide：每一個幻燈片項目。
+    4. .swiper-button-prev / .swiper-button-next： 是左右導航箭頭的容器。
+  */
   .swiper {
     overflow: hidden;
-    .swiper-wrapper {
-      overflow: visible;
-    }
   }
+  .swiper-wrapper {
+    overflow: visible;
+  }
+
   .card {
     height: 100%;
     display: flex;
@@ -298,7 +284,6 @@
             color: #0027d5;
             margin-right: 8px;
             text-decoration: none;
-
             &:hover {
               color: #b2bef2;
             }
@@ -344,27 +329,169 @@
       }
     }
   }
-
+  .slider-btn {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0027d5;
+    i {
+      font-size: 44px;
+    }
+  }
+  /* .slider-btn-prev, .slider-btn-next, .swiper-button-disabled 請照這個順序改，按鈕才會照預期動作 */
+  .slider-btn-prev {
+    left: -64px;
+    i:hover {
+      color: #1488e0;
+    }
+  }
+  .slider-btn-next {
+    right: -64px;
+    i:hover {
+      color: #1488e0;
+    }
+  }
+  .swiper-button-disabled {
+    color: #b2bef2;
+  }
 }
 
-/* 部落格精選區塊 - 響應式：  */
+/* 部落格精選區塊 - 響應式： 寬度小於1500px就會蓋到右邊的箭頭，所以直接讓它掉下來 */
 @media (max-width: 1500px) {
   .feature {
-    .slider-btn {
-      position: static;
-      transform: translateY(0);
+    .swiper {
+      margin-bottom: 32px;
     }
     .slider-btn-wrapper {
       display: flex;
       justify-content: flex-end;
       gap: 24px;
     }
-    .swiper {
-      margin-bottom: 32px;
+    .slider-btn {
+      position: static;
+      transform: translateY(0);
     }
-
-  }  
+  }
 }
 
+/* 部落格精選區塊 - 響應式：平板尺寸時就顯示手機版樣式 */
+@media (max-width: 992px) {
+  .feature {
+    /* 手機版樣式兩側空12px，上下空64px，內容置中 */
+    margin: 0 auto;
+    padding: 64px 12px;
+    h2 {
+      font-size: 48px;
+    }
+  }
+}
 
+/* 職涯諮詢成功案例區塊 */
+.case {
+  padding: 80px 0;
+  .case-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+  }
+  .case-img {
+    width: 57.48%;
+    padding: 24px;
+    background: #ededed;
+  }
+  .case-desc {
+    width: 42.4%;
+  }
 
+  .case-desc-top {
+    padding: 80px 40px;
+    width: calc(100% - 24px);
+    margin-left: -219px;
+    margin-right: 219px;
+    background: white;
+    i {
+      color: #0027d5;
+      font-size: 40px;
+      margin-bottom: 24px;
+    }
+    p {
+      font-weight: 700;
+    }
+  }
+
+  .case-desc-bottom {
+    padding: 80px 40px;
+    background: #f5f5f5;
+    margin-top: -40px;
+    margin-left: 24px;
+    flex-grow: 1;
+    i {
+      color: #0027d5;
+      font-size: 40px;
+      margin-bottom: 24px;
+    }
+    p {
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    a {
+      padding: 8px 16px;
+      border: solid 1px #0027d5;
+      border-radius: 80px;
+      color: #0027d5;
+      background: #fff;
+      text-decoration: none;
+      &:hover {
+        background: #0027d5;
+        color: #fff;
+      }
+    }
+  }
+}
+
+/* 職涯諮詢成功案例區塊 - 響應式：為了讓圖片不會斷行 */
+@media (max-width: 1200px) {
+  .case-desc-top,
+  .case-desc-bottom {
+    padding: 80px 24px 40px;
+  }
+}
+/* 職涯諮詢成功案例區塊 - 響應式：平板尺寸時就顯示手機版樣式 */    
+@media (max-width: 992px) {
+  .case {
+    /* 手機版樣式兩側空12px，上下空64px，內容置中 */
+    margin: 0 auto;
+    padding: 64px 12px;
+    h2 {
+      font-size: 48px;
+      width: 200px;
+    }
+    .case-wrapper {
+      flex-direction: column;
+    }
+
+    .case-img {
+      width: 100%;
+      padding-bottom: 0;
+    }
+
+    .case-desc {
+      width: 100%;
+    }
+
+    .case-desc-top {
+      padding: 40px 24px;
+      width:100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 12px;
+    }
+
+    .case-desc-bottom {
+      padding: 40px 24px;
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+}
