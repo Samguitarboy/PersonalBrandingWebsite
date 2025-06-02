@@ -441,6 +441,7 @@ a:hover {
 
 /*----區塊三：Footer------*/
 .footer {
+  background-color: #fbfbfb;
   border-top: 1px solid #6C757D;
   text-align: center;
   /* EMAIL聯絡資訊+ICON區塊 */
