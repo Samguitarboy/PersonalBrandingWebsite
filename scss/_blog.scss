@@ -11,44 +11,6 @@ img {
   object-fit: cover;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* 最外層容器 */
-.container{
-  max-width: 1320px;
-  margin: 0 auto;
-  padding:0 12px;
-}
-
-/* 區塊一：Header */
-/* 導航列navbar */
-.navbar{
-  display: flex; /*  選單並排  */
-  justify-content: center;
-  max-width: 100%;
-  &:hover{
-     color: #0027d5;
-}
-    ul{
-    display: flex;
-    list-style:none;
-    }
-}
-
-.nav-item{
-  display: block;
-  color:#333;
-  font-size: 28px;
-  font-weight: 700;  
-  text-decoration: none; /*   去底線 */
-  padding: 24px 20px; /*  跟旁邊的a連結保持距離  */
-}
-
-
 /* Banner區塊:左邊人物圖＋右邊背景內容 */
 .banner-box{
   display: flex;
@@ -79,22 +41,22 @@ img {
   background-image: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2025-web-camp/desktop/index/Hero%20Section2.png?raw=true");
   background-size: cover; /*讓右側背景圖片貼滿*/
   background-position: right center; /*對齊右邊 */
+  padding-top: 300px;
+  padding-bottom: 300px;
+  padding-left: 80px;
 }
 
 /* 右邊文字內容 */
-.banner-text h2{
+.banner-text h1{
   text-align:left;
   font-size: 120px;
   font-weight: 900;
   margin-bottom: 12px;
-  margin: 300px 547px 12px 80px;
 }
 
 .banner-text p{
   font-size: 28px;
   font-weight: 700;
-  margin-left:80px;
-  margin-bottom:300px;
 }
 
 /* 最新文章區塊Article */
@@ -215,6 +177,10 @@ img {
 }
 }
 
+.search-input{
+  border: none;
+  outline: none;
+}
 
 /* 部落個卡片區塊 */
 
@@ -223,7 +189,6 @@ img {
   display:flex;
 	flex-wrap:wrap;
 	margin: 40px 0;
-	max-width: 1310px;
   width: 100%;
 	gap: 40px 24px; /* 卡片之間間距更一致 */
 	background: #FBFBFB;
@@ -339,6 +304,7 @@ img {
   i {
   font-size: 24px;
   font-weight: 900;
+  text-decoration:none;
 }
 }
 
@@ -346,6 +312,10 @@ img {
 a {
   font-weight: 500;
   color: #4b4b4b;
+  text-decoration:none;
+  &:hover{
+    color:orange;
+  }
 }
 
 /*----區塊三：Footer------*/
@@ -451,6 +421,10 @@ a {
   .article-photo, 
   .article-content{
     width: 100%;
+  }
+
+  .footer-email-icon{
+  flex-direction: column;
   }
   
 }
