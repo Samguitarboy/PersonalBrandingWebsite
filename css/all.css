@@ -136,7 +136,7 @@ img {
 
 /* Banner左邊人物圖 */
 .banner-photo {
-  width: 50%;
+  width: 660px;
   display: flex;
   flex-direction: column;
   background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2025-web-camp/desktop/index/Hero%20Section.png?raw=true");
@@ -148,7 +148,7 @@ img {
 
 /* Banner右邊背景樣式 */
 .banner-right {
-  width: 50%;
+  width: 660px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -469,8 +469,13 @@ a:hover {
 /*  Media Query 做響應式  */
 @media (max-width: 992px) {
   .card {
-    flex: 0 0 calc((100vh - 24px) / 2); /* 2 欄 */
+    flex: 0 0 47%; /* 2 欄 */
   }
+
+  .footer ul{
+    display: none;
+  }
+  
 }
 @media (max-width: 767px) {
   .card {
@@ -505,8 +510,8 @@ a:hover {
   .article-content {
     width: 100%;
   }
-  .footer-email-icon {
-    flex-direction: column;
+  .footer ul{
+    display: none;
   }
 }
 /* 部落格文章頁 */
