@@ -18,9 +18,8 @@ a {
 }
 .article-box {
   margin-left: 24px;
-  padding-top: 80px;
-  padding-right: 120px;
-  padding-bottom: 80px;
+  padding-top: 48px;
+  padding-bottom: 48px;
   gap: 24px;
   .article-tag {
     color: #0027d5;
@@ -130,23 +129,22 @@ a {
   border-radius: 40px;
   padding: 8px 16px;
   color: #4b4b4b;
-  .bi-chevron-left {
+  .bi-chevron-left .bi-chevron-right {
     color: #4b4b4b;
     width: 24px;
     height: 24px;
     padding-right: 4px;
   }
-  .bi-chevron-right {
-    color: #4b4b4b;
-    width: 24px;
-    height: 24px;
-    padding-left: 4px;
+  &:hover {
+    color: #fff;
+    background-color: #0027d5;
   }
-
+  
 }
 .footer{
   border-top: 1px solid #000;
   text-align: center;
+  background-color: #fbfbfb;
   .footer-list {
     display: flex;
     justify-content: space-between;
@@ -154,10 +152,10 @@ a {
   }
   .email {
     font-size: 32px;
-    width: 1036px;
     padding-top: 80px;
     padding-bottom: 80px;
     padding-right: 24px;
+    padding-left: 312px;
   }
   .social-icons {
     padding-bottom: 82px;
