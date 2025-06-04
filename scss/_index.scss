@@ -67,17 +67,14 @@
 @media (max-width: 992px) {
   .banner-profile {
     flex-direction: column;
-    /* 手機版樣式兩側空12px，內容置中 */
+    /* 手機版樣式內容置中 */
     margin: 0 auto;
-    padding: 0 12px;
-  }
-  .banner-intro {
-    width: 100%;
   }
   .banner-photo {
     width: 100%;
   } 
   .banner-intro {
+    width: 100%;
     padding: 24px 24px 200px;
     .banner-title {
       font-size: 52px;
@@ -283,7 +280,6 @@
             font-size: 24px;
             color: #0027d5;
             margin-right: 8px;
-            text-decoration: none;
             &:hover {
               color: #b2bef2;
             }
@@ -318,7 +314,6 @@
         border: 1px solid #000;
         border-radius: 80px;
         color: #4b4b4b;
-        text-decoration: none;
         align-self: flex-start;
         transition: all 0.3s ease;
 
@@ -388,6 +383,7 @@
 }
 
 /* 職涯諮詢成功案例區塊 */
+
 .case {
   padding: 80px 0;
   .case-wrapper {
@@ -441,20 +437,57 @@
       border-radius: 80px;
       color: #0027d5;
       background: #fff;
-      text-decoration: none;
       &:hover {
         background: #0027d5;
         color: #fff;
       }
     }
   }
+  .case-intro {
+    margin-top: 40px;
+    padding: 24px;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    .case-intro-item {
+      .case-intro-desc {
+        padding: 16px 0;
+        border-bottom: 1px solid #4b4b4b;
+        h3 {
+          padding-bottom: 8px;
+        }
+        i {
+          color: #0027d5;
+        }
+        span {
+          color: #4b4b4b;
+          padding-left: 4px;
+        }
+      }
+      a {
+        display: inline-block;
+        margin-top: 16px;
+        padding: 8px 16px;
+        border: solid 1px #000;
+        border-radius: 80px;
+        color: #4b4b4b;
+        background: #f5f5f5;
+        &:hover {
+          background: #4b4b4b;
+          color: #f5f5f5;
+        }
+      }
+    }
+  }
 }
 
-/* 職涯諮詢成功案例區塊 - 響應式：為了讓圖片不會斷行 */
-@media (max-width: 1200px) {
-  .case-desc-top,
-  .case-desc-bottom {
-    padding: 80px 24px 40px;
+/* 職涯諮詢成功案例區塊 - 響應式：為了讓下面的個人推薦不會疊在一起 */
+@media (max-width: 1230px) {
+  .case-intro {
+    flex-direction: column;
+  }
+  .case-intro-item {
+    margin-bottom: 24px;
   }
 }
 /* 職涯諮詢成功案例區塊 - 響應式：平板尺寸時就顯示手機版樣式 */    
@@ -495,3 +528,171 @@
     }
   }
 }
+
+/* 訂閱電子報區塊 */
+
+.subscribe {
+  display: flex;
+  border-top: 1px solid #6c757d;
+  border-bottom: 1px solid #6c757d;
+  .subscribe-photo {
+    width: 50%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .subscribe-mail {
+    width: 50%;
+    padding: 172px 80px;
+    background-image: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2025-web-camp/desktop/index/Hero%20Section2.png?raw=true");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    .subscribe-mail-desc {
+      padding: 80px;
+      background: #fff;
+      p {
+        padding-top: 16px;
+        font-size: 20px;
+      }
+      .highlight {
+        color: #0056d2;
+      }
+      .subscribe-mail-form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 24px 0;
+        .subscribe-input {
+          padding: 8px;
+          font-size: 20px;
+          border: none;
+          background-color: #f1f1f1;
+          &::placeholder {
+            color: #4b4b4b;
+          }
+        }
+      }
+      a {
+        padding: 8px 16px;
+        border: solid 1px #0027d5;
+        border-radius: 40px;
+        color: #0027d5;
+        background: #fff;
+        &:hover {
+          background: #0027d5;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+/* 訂閱電子報區塊 - 響應式：為了讓文字不會掉下來，標題字縮小 */
+@media (max-width: 1280px) {
+  .subscribe-mail-desc {
+    h2 {
+      font-size: 34px;
+    }
+  }
+}
+
+/* 職涯諮詢成功案例區塊 - 響應式：平板尺寸時就顯示手機版樣式 */    
+@media (max-width: 992px) {
+  .subscribe {
+    flex-direction: column;
+    /* 手機版樣式內容置中 */
+    margin: 0 auto;
+    .subscribe-photo {
+      width: 100%;
+    }
+    .subscribe-mail {
+      width: 100%;
+      padding: 12px;
+      .subscribe-mail-desc {
+        width: 100%;
+        padding: 40px 24px;
+        h2 {
+          font-size: 48px;
+        }
+      }
+    }
+  }
+}
+
+/* 與我聯繫區塊 */
+
+.contact {
+  padding: 80px 0;
+  border-bottom: 1px solid #6c757d;
+  .contact-link {
+    width: calc( 100vw - 312px);
+    margin: 0 auto;
+    li {
+      &:hover {
+        background: #f1f1f1;;
+      }
+      .underline {
+        font-size: 32px;
+        color:#000;
+        text-decoration: underline;
+      }
+      a {
+        font-size: 28px;
+        padding: 16px 0;
+        color: #000;
+        border-bottom: 1px solid #000;
+        display: flex;
+        align-items: center;
+        i {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}
+
+/* 與我聯繫區塊 - 響應式：平板尺寸時就顯示手機版字體大小 */    
+@media (max-width: 992px) {
+  .contact {
+    /* 手機版樣式兩側空12px，上下空64px，內容置中 */
+    margin: 0 auto;
+    padding: 64px 12px;
+    .contact-link {
+      width: 100%;
+      h2 {
+        font-size: 48px;
+      }
+      li {
+        .underline {
+          font-size: 24px;
+        }
+        a {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
+/* 與我聯繫區塊 - 響應式：將箭頭下移 */ 
+@media (max-width: 480px) {
+  .contact-link {
+    .IconText {
+      display: flex;
+      align-items: flex-start;
+    }
+    a {
+      flex-direction: column;
+      align-items: flex-start !important; 
+
+    }
+    i {
+      margin-left: 0 !important;
+    }
+
+  }
+}
+
+
