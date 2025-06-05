@@ -1,8 +1,774 @@
 /* 首頁 */ 
-/* 桌機、平板：768px~1920px */
+
+/* Banner 區塊 */
+
+.banner-profile {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.banner-photo {
+  width: 50%;
+}
+
+.banner-intro {
+  width: 50%;
+  padding: 0 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2025-web-camp/desktop/index/Hero%20Section2.png?raw=true") center/cover no-repeat;
+}
+
+.banner-title {
+  font-size: 120px;
+  font-weight: 900;
+  color: #0027d5;
+}
+
+.banner-subtitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0027d5;
+}
+
+.banner-desc {
+  width: 56%;
+  padding: 80px 40px;
+  margin: -160px 80px 0 auto;
+  font-size: 28px;
+  background: #fff;
+  position: relative;
+
+  p + p {
+    margin-top: 16px;
+  }
+
+  ul {
+    display: flex;
+    margin-top: 16px;
+    gap: 4px;
+
+    a:hover {
+      background: #f8f4f4;
+      border-radius: 8px;
+    }
+  }
+}
+
+/* Banner區塊 - 響應式：為了讓banner-title不會斷行 */
+@media (max-width: 1710px) {
+  .banner-title {
+    font-size: calc(((100vw / 2) - 160px) / 6);
+  }
+}
+
+/* Banner區塊 - 響應式：平板尺寸時就顯示手機版樣式 */
+@media (max-width: 992px) {
+  .banner-profile {
+    flex-direction: column;
+    /* 手機版樣式內容置中 */
+    margin: 0 auto;
+  }
+
+  .banner-photo,
+  .banner-intro {
+    width: 100%;
+  }
+
+  .banner-intro {
+    padding: 24px 24px 200px;
+  }
+
+  .banner-title {
+    font-size: 52px;
+  }
+
+  .banner-desc {
+    width: calc(100% - 24px);
+    margin: -160px auto 0;
+  }
+}
+
+/* 專業服務與方案區塊 */
+
+.service {
+  padding: 80px 0;
+  border-bottom: 1px solid #6c757d;
+
+  .service-title {
+    margin-bottom: 32px;
+  }
+
+  .list {
+    padding: 0 110px;
+
+    .list-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 64px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .list-img {
+        width: 59.1%;
+      }
+
+      .list-text {
+        position: relative;
+        z-index: 10;
+        width: calc(40.9% + 40px);
+        padding: 24px;
+        background: #fff;
+
+        i {
+          color: #0027d5;
+          font-size: 40px;
+        }
+
+        .list-title {
+          margin-bottom: 8px;
+        }
+
+        p {
+          color: #4b4b4b;
+        }
+      }
+    }
+
+    /* 調整圖文排列 - 讓圖片往左邊多伸展 */
+    .list-item-row {
+      .list-img {
+        margin-right: -40px;
+      }
+    }
+
+    /* 調整圖文反轉排列 - 讓圖片往右邊多伸展 */
+    .list-item-reverse {
+      flex-direction: row-reverse;
+
+      .list-img {
+        margin-left: -40px;
+      }
+    }
+  }
+
+  .service-contact {
+    margin-top: 32px;
+    gap: 8px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    h3 {
+      padding: 1px 0;
+    }
+
+    .arrow i {
+      display: inline-flex;
+      vertical-align: middle;
+      font-size: 40px;
+      color: #000;
+      border-radius: 50%;
+
+      &:hover {
+        color: #fff;
+        background: #000;
+      }
+    }
+  }
+}
+
+/* 專業服務與方案區塊 - 響應式：為了讓標題文字和聯繫我的箭頭不會跑版 */
+@media (max-width: 1355px) {
+  .service-title {
+    text-align: center;
+  }
+  .service-contact {
+    padding-right: 12px;
+  }
+}
+
+/* 專業服務與方案區塊 - 響應式：平板尺寸時就顯示手機版樣式 */
+@media (max-width: 992px) {
+  .service {
+    /* 手機版樣式兩側空12px，上下空64px，內容置中 */
+    margin: 0 auto;
+    padding: 64px 12px;
+
+    .list {
+      padding: 0;
+
+      .list-item {
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 64px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .list-img {
+          width: 100%;
+
+          img {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+        }
+
+        .list-text {
+          position: static;
+          width: 100%;
+        }
+      }
+
+      .list-item-row {
+        .list-img {
+          margin-right: 0;
+        }
+      }
+
+      .list-item-reverse {
+        .list-img {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .service-contact {
+      flex-direction: column;
+      align-items: end;
+    }
+  }
+}
+
+/* 專業服務與方案區塊 - 響應式：375px~992px間標題因文字太大會跑版的樣式調整 */
+@media (max-width: 480px) {
+  .service-title {
+    font-size: 48px;
+  }
+}
+
+/* 部落格精選區塊 */
+
+.feature {
+  padding: 80px 0;
+  border-bottom: 1px solid #6c757d;
+
+  h2 {
+    margin-bottom: 24px;
+  }
+
+  .feature-wrapper {
+    position: relative;
+  }
+
+  /*
+    1. .swiper 是 Swiper 的主要容器，必須存在。
+    2. .swiper-wrapper 是所有 slide 的包裹區塊，是 Swiper 的固定結構。
+    3. .swiper-slide：每一個幻燈片項目。
+    4. .swiper-button-prev / .swiper-button-next： 是左右導航箭頭的容器。
+  */
+  .swiper {
+    overflow: hidden;
+  }
+
+  .swiper-wrapper {
+    overflow: visible;
+  }
+
+  .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .card-head {
+      margin-bottom: 16px;
+
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
+
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      time {
+        margin-bottom: 4px;
+      }
+
+      .card-subtitle {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+
+        .hashtag {
+          a {
+            font-size: 24px;
+            color: #0027d5;
+            margin-right: 8px;
+
+            &:hover {
+              color: #b2bef2;
+            }
+          }
+        }
+
+        .badge {
+          display: inline-block;
+          padding: 6px 12px;
+          border-radius: 80px;
+          font-weight: 700;
+          background: #0027d5;
+          color: #fff;
+        }
+      }
+
+      .card-title {
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      .card-desc {
+        flex-grow: 1; // 撐開剩餘空間
+        margin-bottom: 16px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        border: 1px solid #000;
+        border-radius: 80px;
+        color: #4b4b4b;
+        align-self: flex-start;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #000;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .slider-btn {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0027d5;
+
+    i {
+      font-size: 44px;
+    }
+  }
+
+  /* .slider-btn-prev, .slider-btn-next, .swiper-button-disabled 請照這個順序改，按鈕才會照預期動作 */
+  .slider-btn-prev {
+    left: -64px;
+
+    i:hover {
+      color: #1488e0;
+    }
+  }
+
+  .slider-btn-next {
+    right: -64px;
+
+    i:hover {
+      color: #1488e0;
+    }
+  }
+
+  .swiper-button-disabled {
+    color: #b2bef2;
+  }
+}
+
+/* 部落格精選區塊 - 響應式： 寬度小於1500px就會蓋到右邊的箭頭，所以直接讓它掉下來 */
+@media (max-width: 1500px) {
+  .feature {
+    .swiper {
+      margin-bottom: 32px;
+    }
+
+    .slider-btn-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      gap: 24px;
+    }
+
+    .slider-btn {
+      position: static;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* 部落格精選區塊 - 響應式：平板尺寸時就顯示手機版樣式 */
+@media (max-width: 992px) {
+  .feature {
+    /* 手機版樣式兩側空12px，上下空64px，內容置中 */
+    margin: 0 auto;
+    padding: 64px 12px;
+
+    h2 {
+      font-size: 48px;
+    }
+  }
+}
 
 
-/* 響應式 手機版：~767px */
-@media (max-width: 768px) {
+/* 職涯諮詢成功案例區塊 */
 
+.case {
+  padding: 80px 0;
+
+  .case-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+  }
+
+  .case-img {
+    width: 57.48%;
+    padding: 24px;
+    background: #ededed;
+  }
+
+  .case-desc {
+    width: 42.4%;
+  }
+
+  .case-desc-top,
+  .case-desc-bottom {
+    padding: 80px 40px;
+    i {
+      color: #0027d5;
+      font-size: 40px;
+      margin-bottom: 24px;
+    }
+    p {
+      font-weight: 700;
+    }
+  }
+
+  .case-desc-top {
+    width: calc(100% - 24px);
+    margin-left: -219px;
+    margin-right: 219px;
+    background: white;
+  }
+
+  .case-desc-bottom {
+    background: #f5f5f5;
+    margin-top: -40px;
+    margin-left: 24px;
+    flex-grow: 1;
+
+    p {
+      margin-bottom: 24px;
+    }
+    a {
+      padding: 8px 16px;
+      border: solid 1px #0027d5;
+      border-radius: 80px;
+      color: #0027d5;
+      background: #fff;
+      &:hover {
+        background: #0027d5;
+        color: #fff;
+      }
+    }
+  }
+
+  .case-intro {
+    margin-top: 40px;
+    padding: 24px;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+
+    .case-intro-item {
+      .case-intro-desc {
+        padding: 16px 0;
+        border-bottom: 1px solid #4b4b4b;
+        h3 {
+          padding-bottom: 8px;
+        }
+        i {
+          color: #0027d5;
+        }
+        span {
+          color: #4b4b4b;
+          padding-left: 4px;
+        }
+      }
+
+      a {
+        display: inline-block;
+        margin-top: 16px;
+        padding: 8px 16px;
+        border: solid 1px #000;
+        border-radius: 80px;
+        color: #4b4b4b;
+        background: #f5f5f5;
+        &:hover {
+          background: #4b4b4b;
+          color: #f5f5f5;
+        }
+      }
+    }
+  }
+}
+
+/* 職涯諮詢成功案例區塊 - 響應式：為了讓下面的個人推薦不會疊在一起 */
+@media (max-width: 1230px) {
+  .case-intro {
+    flex-direction: column;
+  }
+  .case-intro-item {
+    margin-bottom: 24px;
+  }
+}
+
+/* 職涯諮詢成功案例區塊 - 響應式：平板尺寸時就顯示手機版樣式 */ 
+@media (max-width: 992px) {
+  .case {
+    /* 手機版樣式兩側空12px，上下空64px，內容置中 */
+    margin: 0 auto;
+    padding: 64px 12px;
+
+    h2 {
+      font-size: 48px;
+      width: 200px;
+    }
+
+    .case-wrapper {
+      flex-direction: column;
+    }
+
+    .case-img {
+      width: 100%;
+      padding-bottom: 0;
+    }
+
+    .case-desc {
+      width: 100%;
+    }
+
+    .case-desc-top {
+      padding: 40px 24px;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 12px;
+    }
+
+    .case-desc-bottom {
+      padding: 40px 24px;
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+/* 訂閱電子報區塊 */
+
+.subscribe {
+  display: flex;
+  border-top: 1px solid #6c757d;
+  border-bottom: 1px solid #6c757d;
+
+  .subscribe-photo {
+    width: 50%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .subscribe-mail {
+    width: 50%;
+    padding: 172px 80px;
+    background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2025-web-camp/desktop/index/Hero%20Section2.png?raw=true") center / cover no-repeat;
+
+    .subscribe-mail-desc {
+      padding: 80px;
+      background: #fff;
+
+      p {
+        padding-top: 16px;
+        font-size: 20px;
+      }
+
+      .highlight {
+        color: #0056d2;
+      }
+
+      .subscribe-mail-form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 24px 0;
+
+        .subscribe-input {
+          padding: 8px;
+          font-size: 20px;
+          border: none;
+          background-color: #f1f1f1;
+
+          &::placeholder {
+            color: #4b4b4b;
+          }
+        }
+      }
+
+      a {
+        padding: 8px 16px;
+        border: 1px solid #0027d5;
+        border-radius: 40px;
+        color: #0027d5;
+        background: #fff;
+        transition: background 0.3s, color 0.3s;
+
+        &:hover {
+          background: #0027d5;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+/* 訂閱電子報區塊 - 響應式：為了讓文字不會掉下來，標題字縮小 */
+@media (max-width: 1280px) {
+  .subscribe-mail-desc h2 {
+    font-size: 34px;
+  }
+}
+
+/* 訂閱電子報區塊 - 響應式：平板尺寸時就顯示手機版樣式 */  
+@media (max-width: 992px) {
+  .subscribe {
+    flex-direction: column;
+    /* 手機版樣式內容置中 */
+    margin: 0 auto;
+
+    .subscribe-photo,
+    .subscribe-mail {
+      width: 100%;
+    }
+
+    .subscribe-mail {
+      padding: 12px;
+
+      .subscribe-mail-desc {
+        width: 100%;
+        padding: 40px 24px;
+
+        h2 {
+          font-size: 48px;
+        }
+      }
+    }
+  }
+}
+
+
+/* 與我聯繫區塊 */
+.contact {
+  padding: 80px 0;
+  border-bottom: 1px solid #6c757d;
+
+  .contact-link {
+    width: calc(100vw - 312px);
+    margin: 0 auto;
+
+    li {
+      &:hover {
+        background: #f1f1f1;
+      }
+    }
+
+    .underline {
+      font-size: 32px;
+      color: #000;
+      text-decoration: underline;
+    }
+
+    a {
+      font-size: 28px;
+      padding: 16px 0;
+      color: #000;
+      border-bottom: 1px solid #000;
+      display: flex;
+      align-items: center;
+
+      i {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+/* 與我聯繫區塊 - 響應式：平板尺寸時就顯示手機版字體大小 */    
+@media (max-width: 992px) {
+  .contact {
+    /* 手機版樣式兩側空12px，上下空64px，內容置中 */
+    margin: 0 auto;
+    padding: 64px 12px;
+
+    .contact-link {
+      width: 100%;
+
+      h2 {
+        font-size: 48px;
+      }
+
+      li {
+        .underline {
+          font-size: 24px;
+        }
+
+        a {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
+
+/* 與我聯繫區塊 - 響應式：將箭頭下移 */ 
+@media (max-width: 480px) {
+  .contact-link {
+    .IconText {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    a {
+      flex-direction: column;
+      align-items: flex-start !important;
+    }
+
+    i {
+      margin-left: 0 !important;
+    }
+  }
 }
