@@ -127,9 +127,10 @@ a {
 }
 
 /* 首頁 */
-/* Banner區塊 */
+/* Banner 區塊 */
 .banner-profile {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .banner-photo {
@@ -142,17 +143,16 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2025-web-camp/desktop/index/Hero%20Section2.png?raw=true");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2025-web-camp/desktop/index/Hero%20Section2.png?raw=true") center/cover no-repeat;
 }
-.banner-intro .banner-title {
+
+.banner-title {
   font-size: 120px;
   font-weight: 900;
   color: #0027d5;
 }
-.banner-intro .banner-subtitle {
+
+.banner-subtitle {
   font-size: 28px;
   font-weight: 700;
   color: #0027d5;
@@ -161,14 +161,10 @@ a {
 .banner-desc {
   width: 56%;
   padding: 80px 40px;
-  margin-right: 80px;
-  margin-left: auto;
+  margin: -160px 80px 0 auto;
   font-size: 28px;
   background: #fff;
   position: relative;
-  margin-bottom: -160px;
-  right: 0;
-  bottom: 160px;
 }
 .banner-desc p + p {
   margin-top: 16px;
@@ -185,7 +181,7 @@ a {
 
 /* Banner區塊 - 響應式：為了讓banner-title不會斷行 */
 @media (max-width: 1710px) {
-  .banner-intro .banner-title {
+  .banner-title {
     font-size: calc((50vw - 160px) / 6);
   }
 }
@@ -196,20 +192,19 @@ a {
     /* 手機版樣式內容置中 */
     margin: 0 auto;
   }
-  .banner-photo {
+  .banner-photo,
+  .banner-intro {
     width: 100%;
   }
   .banner-intro {
-    width: 100%;
     padding: 24px 24px 200px;
   }
-  .banner-intro .banner-title {
+  .banner-title {
     font-size: 52px;
   }
   .banner-desc {
     width: calc(100% - 24px);
-    margin-left: auto;
-    margin-right: auto;
+    margin: -160px auto 0;
   }
 }
 /* 專業服務與方案區塊 */
@@ -222,13 +217,16 @@ a {
 }
 .service .list {
   padding: 0 110px;
+  /* 調整圖文排列 - 讓圖片往左邊多伸展 */
+  /* 調整圖文反轉排列 - 讓圖片往右邊多伸展 */
 }
 .service .list .list-item {
   display: flex;
   align-items: center;
-}
-.service .list .list-item:not(:last-child) {
   margin-bottom: 64px;
+}
+.service .list .list-item:last-child {
+  margin-bottom: 0;
 }
 .service .list .list-item .list-img {
   width: 59.1%;
@@ -250,13 +248,13 @@ a {
 .service .list .list-item .list-text p {
   color: #4b4b4b;
 }
-.service .list-item-row .list-img {
+.service .list .list-item-row .list-img {
   margin-right: -40px;
 }
-.service .list-item-reverse {
+.service .list .list-item-reverse {
   flex-direction: row-reverse;
 }
-.service .list-item-reverse .list-img {
+.service .list .list-item-reverse .list-img {
   margin-left: -40px;
 }
 .service .service-contact {
@@ -303,6 +301,10 @@ a {
   .service .list .list-item {
     flex-direction: column;
     align-items: stretch;
+    margin-bottom: 64px;
+  }
+  .service .list .list-item:last-child {
+    margin-bottom: 0;
   }
   .service .list .list-item .list-img {
     width: 100%;
@@ -316,10 +318,10 @@ a {
     position: static;
     width: 100%;
   }
-  .service .list-item-row .list-img {
+  .service .list .list-item-row .list-img {
     margin-right: 0;
   }
-  .service .list-item-reverse .list-img {
+  .service .list .list-item-reverse .list-img {
     margin-left: 0;
   }
   .service .service-contact {
@@ -494,35 +496,33 @@ a {
 .case .case-desc {
   width: 42.4%;
 }
-.case .case-desc-top {
-  padding: 80px 40px;
-  width: calc(100% - 24px);
-  margin-left: -219px;
-  margin-right: 219px;
-  background: white;
-}
-.case .case-desc-top i {
-  color: #0027d5;
-  font-size: 40px;
-  margin-bottom: 24px;
-}
-.case .case-desc-top p {
-  font-weight: 700;
-}
+.case .case-desc-top,
 .case .case-desc-bottom {
   padding: 80px 40px;
-  background: #f5f5f5;
-  margin-top: -40px;
-  margin-left: 24px;
-  flex-grow: 1;
 }
+.case .case-desc-top i,
 .case .case-desc-bottom i {
   color: #0027d5;
   font-size: 40px;
   margin-bottom: 24px;
 }
+.case .case-desc-top p,
 .case .case-desc-bottom p {
   font-weight: 700;
+}
+.case .case-desc-top {
+  width: calc(100% - 24px);
+  margin-left: -219px;
+  margin-right: 219px;
+  background: white;
+}
+.case .case-desc-bottom {
+  background: #f5f5f5;
+  margin-top: -40px;
+  margin-left: 24px;
+  flex-grow: 1;
+}
+.case .case-desc-bottom p {
   margin-bottom: 24px;
 }
 .case .case-desc-bottom a {
@@ -631,10 +631,7 @@ a {
 .subscribe .subscribe-mail {
   width: 50%;
   padding: 172px 80px;
-  background-image: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2025-web-camp/desktop/index/Hero%20Section2.png?raw=true");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2025-web-camp/desktop/index/Hero%20Section2.png?raw=true") center/cover no-repeat;
 }
 .subscribe .subscribe-mail .subscribe-mail-desc {
   padding: 80px;
@@ -664,10 +661,11 @@ a {
 }
 .subscribe .subscribe-mail .subscribe-mail-desc a {
   padding: 8px 16px;
-  border: solid 1px #0027d5;
+  border: 1px solid #0027d5;
   border-radius: 40px;
   color: #0027d5;
   background: #fff;
+  transition: background 0.3s, color 0.3s;
 }
 .subscribe .subscribe-mail .subscribe-mail-desc a:hover {
   background: #0027d5;
@@ -680,18 +678,18 @@ a {
     font-size: 34px;
   }
 }
-/* 職涯諮詢成功案例區塊 - 響應式：平板尺寸時就顯示手機版樣式 */
+/* 訂閱電子報區塊 - 響應式：平板尺寸時就顯示手機版樣式 */
 @media (max-width: 992px) {
   .subscribe {
     flex-direction: column;
     /* 手機版樣式內容置中 */
     margin: 0 auto;
   }
-  .subscribe .subscribe-photo {
+  .subscribe .subscribe-photo,
+  .subscribe .subscribe-mail {
     width: 100%;
   }
   .subscribe .subscribe-mail {
-    width: 100%;
     padding: 12px;
   }
   .subscribe .subscribe-mail .subscribe-mail-desc {
@@ -714,12 +712,12 @@ a {
 .contact .contact-link li:hover {
   background: #f1f1f1;
 }
-.contact .contact-link li .underline {
+.contact .contact-link .underline {
   font-size: 32px;
   color: #000;
   text-decoration: underline;
 }
-.contact .contact-link li a {
+.contact .contact-link a {
   font-size: 28px;
   padding: 16px 0;
   color: #000;
@@ -727,7 +725,7 @@ a {
   display: flex;
   align-items: center;
 }
-.contact .contact-link li a i {
+.contact .contact-link a i {
   margin-left: auto;
 }
 
