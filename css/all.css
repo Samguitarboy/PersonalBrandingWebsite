@@ -166,7 +166,6 @@ a {
   }
   .article-pic {
     width: 100%;
-    height: calc(100vh - 90px - 252px);
   }
 }
 .article-content {
@@ -264,40 +263,32 @@ a {
   background-color: #0027d5;
 }
 
-.footer {
+.footer-list {
   border-top: 1px solid #000;
   text-align: center;
-  background-color: #fbfbfb;
-}
-.footer .footer-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.footer .email {
+
+.email {
   font-size: 32px;
   padding-top: 80px;
   padding-bottom: 80px;
   padding-right: 24px;
   padding-left: 312px;
 }
-.footer .social-icons {
+
+.social-icons {
   padding-bottom: 82px;
   padding-top: 82px;
   margin-right: 312px;
+  display: flex;
 }
 
 /* 響應式 手機版：~767px */
 @media (max-width: 768px) {
-  .footer .footer-list {
+  .footer-list {
     display: none;
   }
 }
-.copyright {
-  background-color: #ffffff;
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-
-/* 桌機、平板：768px~1920px */
-/* 響應式 手機版：~767px */
