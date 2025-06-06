@@ -1,17 +1,5 @@
 /* 部落格列表頁 */
 
-/* 全域樣式 */
-/* 額外對標籤做基本樣式設定 */
-body {
-  font-size: 1.5rem;
-}
-
-img {
-  display: block;
-  object-fit: cover;
-}
-
-
 /* Banner區塊:左邊人物圖＋右邊背景內容 */
 .banner-box{
   display: flex;
@@ -78,7 +66,7 @@ img {
   
 }
 
-.article-content {
+.articlecontent {
   width: 51%;
   display: flex;
   flex-direction: column;
@@ -371,7 +359,7 @@ a {
   }
   
   .article-photo, 
-  .article-content{
+  .articlecontent{
     width: 100%;
   }
 
